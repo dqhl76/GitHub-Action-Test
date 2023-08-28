@@ -27,4 +27,11 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: exit 1
+        run: |
+          cat test.log
+          if grep -q "FATAL" test.log; then
+            echo "Tests failed"
+            exit 1
+          else
+            echo "All tests passed"
+          fi
