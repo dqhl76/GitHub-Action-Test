@@ -35,3 +35,7 @@ jobs:
           else
             echo "All tests passed"
           fi
+      - uses: actions/upload-artifact@v3
+        with:
+          name: /test_begin_with_slash
+          path: test.log
